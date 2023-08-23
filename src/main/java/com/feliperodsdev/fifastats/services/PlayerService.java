@@ -16,7 +16,9 @@ public class PlayerService {
     }
 
     public Player createPlayer(CreatePlayerServiceDto createPlayerServiceDto){
-        return Player.create(createPlayerServiceDto.getName());
+        Player player = Player.create(createPlayerServiceDto.getName());
+        playerRepository.createPlayer(player);
+        return player;
     }
 
     public Player getPlayer(Long id){

@@ -18,4 +18,9 @@ public class PlayerRepository implements IPlayerRepository {
     public Optional<Player> getPlayerById(Long id) {
         return playerRepository.findById(id);
     }
+
+    @Override
+    public void createPlayer(Player player) {
+        playerRepository.save(player);
+    }
 }

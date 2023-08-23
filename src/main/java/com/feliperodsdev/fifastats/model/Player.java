@@ -36,7 +36,6 @@ public class Player {
 
         player.name = name;
 
-
         return player;
     }
 
