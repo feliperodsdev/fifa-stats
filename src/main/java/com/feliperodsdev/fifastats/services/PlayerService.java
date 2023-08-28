@@ -3,6 +3,7 @@ package com.feliperodsdev.fifastats.services;
 import com.feliperodsdev.fifastats.model.Player;
 import com.feliperodsdev.fifastats.repositories.IPlayerRepository;
 import com.feliperodsdev.fifastats.services.dtos.CreatePlayerServiceDto;
+import com.feliperodsdev.fifastats.services.exceptions.ResourceNotFound;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class PlayerService {
     }
 
     public Player getPlayer(Long id){
-        return playerRepository.getPlayerById(id).orElseThrow(() -> new IllegalArgumentException("Not Found"));
+        return playerRepository.getPlayerById(id).orElseThrow(() -> new ResourceNotFound("Not Found"));
     }
 
 }

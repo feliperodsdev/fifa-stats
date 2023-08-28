@@ -1,5 +1,7 @@
 package com.feliperodsdev.fifastats.model;
 
+import com.feliperodsdev.fifastats.model.exceptions.EntityValidationException;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class Player {
     public static Player create(String name){
         Player player = new Player();
 
-        if(!player.isValidName(name)) throw new IllegalArgumentException();
+        if(!player.isValidName(name)) throw new EntityValidationException("'name' invalid.");
 
         player.name = name;
 
